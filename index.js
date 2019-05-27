@@ -1,16 +1,6 @@
-var app = require('express')();
-var http = require('http').createServer(app);
-var io = require("socket.io")(http);
+var io = require("socket.io");
+const server = io.listen(process.env.PORT || 80);
 
-var axios = require('axios');
-var port = process.env.PORT || 3000;
-
-app.get('/', function(req, res){
-    res.send("Opened at PORT "+port);
-});
-http.listen(port, function(){
-    console.log('Application Started at '+port+' PORT');
-});
 
 let socketList = io.sockets.server.eio.clients;
 let clientsCount = 0;
