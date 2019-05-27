@@ -6,7 +6,7 @@ var axios = require('axios');
 var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-    res.sendFile("Opened at PORT "+port);
+    res.send("Opened at PORT "+port);
 });
 http.listen(port, function(){
     console.log('Application Started at '+port+' PORT');
