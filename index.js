@@ -16,15 +16,13 @@ let clientsCount = 0;
 io.on('connection', function(socket){
     clientsCount++;
     socket.on('incoming_message', function(message){
-        console.log(clientsCount)
         if(clientsCount > 1){
             io.emit('receive_message',message);
         }
         else{
-            axios.post("http://localhost:8000/send/email",message)
+            axios.post("https://bitechat.herokuapp.com/send/email",message)
             .then(res=>{
                 console.log("Email Notified")
-                console.log(res.data)
             })
             .catch(error=>{
                 console.log(error)
