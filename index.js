@@ -14,6 +14,8 @@ http.listen(port, function(){
 
 let socketList = io.sockets.server.eio.clients;
 let clientsCount = 0;
+io.origins(['https://bitechat.herokuapp.com:443']);
+
 io.on('connection', function(socket){
     clientsCount++;
     socket.on('incoming_message', function(message){
