@@ -5,7 +5,6 @@ const io = require("socket.io")(server, {
         const headers = {
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
             "Access-Control-Allow-Origin": req.headers.origin,
-            "Access-Control-Allow-Credentials": true
         };
         res.writeHead(200, headers);
         res.end();
@@ -14,12 +13,12 @@ const io = require("socket.io")(server, {
 
 var axios = require('axios');
 var port = process.env.PORT || 3000;
-io.set('origins', '*:*');
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 http.listen(port, function(){
-  console.log('Application Started at '+port+' PORT');
+    console.log('Application Started at '+port+' PORT');
 });
 
 let socketList = io.sockets.server.eio.clients;
