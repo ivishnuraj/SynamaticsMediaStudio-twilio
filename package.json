@@ -11,6 +11,7 @@
     "socket.io": "^2.2.0"
   },
   "scripts": {
-    "serve": "nodemon index.js || livereload . -w 1000 -d"
+    "serve": "nodemon index.js || livereload . -w 1000 -d",
+    "start": "node index.js"
   }
 }
