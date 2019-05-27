@@ -1,7 +1,3 @@
 /*
-  # Headers for that path:
-  X-Frame-Options: DENY
-  Access-Control-Allow-Headers :Content-Type, Authorization
-  X-XSS-Protection: 1; mode=block
+  Access-Control-Allow-Headers :*
   Access-Control-Allow-Origin:*
-  Access-Control-Allow-Credentials:true
