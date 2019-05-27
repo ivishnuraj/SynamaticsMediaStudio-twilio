@@ -6,7 +6,7 @@ var axios = require('axios');
 var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile("Opened at PORT "+port);
 });
 http.listen(port, function(){
     console.log('Application Started at '+port+' PORT');
@@ -14,7 +14,7 @@ http.listen(port, function(){
 
 let socketList = io.sockets.server.eio.clients;
 let clientsCount = 0;
-io.origins(['https://bitechat.herokuapp.com:443']);
+io.origins(['https://bitechat.herokuapp.com:443','http://bitechat.herokuapp.com:80']);
 
 io.on('connection', function(socket){
     clientsCount++;
