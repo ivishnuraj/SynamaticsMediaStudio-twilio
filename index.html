@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bite Chat</title>
+</head>
+<body>
+    <h1>BiteChat Server.</h1>
+    <h2>Unauthorized Access.</h2>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+      var socket = io("http://localhost:8562/");
+      socket.on('receive_message', function(msg){
+        socket.emit('send_message', "Connected");
+            console.log(msg)
+        });
+</script>
+</body>
+</html>
