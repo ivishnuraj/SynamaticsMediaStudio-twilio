@@ -3,10 +3,10 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var axios = require('axios');
 var port = process.env.PORT || 3000;
+io.set('origins', '*:*');
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
-
 http.listen(port, function(){
   console.log('Application Started at '+port+' PORT');
 });
