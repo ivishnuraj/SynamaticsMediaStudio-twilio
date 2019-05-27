@@ -1,6 +1,17 @@
 var app = require('express')();
 var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+const io = require("socket.io")(server, {
+    handlePreflightRequest: (req, res) => {
+        const headers = {
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            "Access-Control-Allow-Origin": req.headers.origin,
+            "Access-Control-Allow-Credentials": true
+        };
+        res.writeHead(200, headers);
+        res.end();
+    }
+});
+
 var axios = require('axios');
 var port = process.env.PORT || 3000;
 io.set('origins', '*:*');
